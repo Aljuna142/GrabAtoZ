@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-  "dev": "nodemon app.js",
+    "start": "nodemon app.js",
+    "dev": "set NODE_ENV=development && nodemon app.js",
+    "prod": "set NODE_ENV=production && nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Aljuna",
   "license": "ISC",
   "type": "module",
   "dependencies": {

@@ -1,14 +1,19 @@
 import Product from '../models/Product.js';
 
+
+//{{base_url}}/api/v1/getAllProducts
 export const getAllProducts = async (req, res) => {
   try {
     const products = await Product.find();
-    res.status(200).json(products);
+    res.status(200).json({
+      success: true,
+      data: products, // Sending the fetched products in the response
+      message: "Successfully fetched all products"
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
 export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -19,6 +24,7 @@ export const getProductById = async (req, res) => {
   }
 };
 
+//{{base_url}}/api/v1/product/new
 export const createProduct = async (req, res) => {
   const { name, description, price, category, stock, imageUrl } = req.body;
   const newProduct = new Product({ name, description, price, category, stock, imageUrl });
