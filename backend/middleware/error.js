@@ -16,14 +16,20 @@ const errorMiddleware = (err, req, res, next) => {
 
     if(process.env.Node_ENV == 'production'){
         let message =err.message;
-        let error = {...err};
+        let error = new Error(message);
 
 
 
         if(err.name=="ValidationError"){
             message= Objects.value(err.errors).map(value=> value.message)
-            error =new Error(message,400) // will do correction in this line later
+            error =new Error(message) ;// will do correction in this line late
+
         }
+if(err.name == 'CastError'){
+    message= `Resource not found: ${err.path}`;
+    error= new Error(message) // will do some changes later 
+}
+
         res.status(err.statusCode).json({
             success: false,
             message: error.message || 'Internal Server Error'

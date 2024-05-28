@@ -2,10 +2,13 @@
 import Product from '../models/Product.js';
 import ErrorHandler from '../utils/errorHandler.js';
 import catchAsyncError from '../middleware/catchAysncError.js';
+import APIFeatures from '../utils/apiFeatures.js';
+
 
 //{{base_url}}/api/v1/getAllProducts
 export const getAllProducts = catchAsyncError(async (req, res, next) => {
-  const products = await Product.find();
+ const apiFeatures= new APIFeatures(Product.find(),req.query).search()
+  const products = await apiFeatures.query;
   res.status(200).json({
     success: true,
     products,
@@ -58,3 +61,4 @@ export const deleteProduct = catchAsyncError(async (req, res, next) => {
     message: 'Product deleted',
   });
 });
+
