@@ -1,62 +1,62 @@
+// Homescreen.js
+// src/screens/HomeScreen.js
 
 import React from 'react';
-import { View, FlatList, TouchableOpacity } from 'react-native';
-import { Box, Text, Image, VStack, HStack, Input, Icon, Badge, Center, ScrollView } from 'native-base';
+import { View, Text } from 'react-native';
+
+const HomeScreen = () => {
+  return (
+    <View>
+      <Text>Home Screen</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+
+
+/*import React from 'react';
+import { ScrollView, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { VStack, HStack, Text, Icon, Badge } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import Carousel from 'react-native-snap-carousel';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
 
   const categories = [
-    { id: '1', name: 'Desktop', image: require('../../assets/desktop.png') },
-    { id: '2', name: 'Laptops', image: require('../../assets/laptop.png') },
-    
+    { id: '1', name: 'Category 1', image: require('../../assets/images/lap-1.jpg') },
+    { id: '2', name: 'Category 2', image: require('../../assets/images/lap-2.jpg') },
   ];
 
   const featuredProducts = [
-    { id: '1', name: 'Product 1', image: require('../../assets/lap-1.jpg'), price: '$99.99' },
-    { id: '2', name: 'Product 2', image: require('../../assets/lap-2.jpg'), price: '$199.99' },
-    
+    { id: '1', name: 'Product 1', image: require('../../assets/images/lap-1.jpg'), price: '$99.99' },
+    { id: '2', name: 'Product 2', image: require('../../assets/images/lap-2.jpg'), price: '$199.99' },
   ];
 
   const renderCategory = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Category', { category: item.name })}>
-      <Center marginX={3}>
-        <Image source={item.image} alt={item.name} size="sm" />
-        <Text>{item.name}</Text>
-      </Center>
+    <TouchableOpacity>
+      <Text>{item.name}</Text>
     </TouchableOpacity>
   );
 
   const renderProduct = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('ProductDetails', { productId: item.id })}>
-      <Box marginX={3}>
-        <Image source={item.image} alt={item.name} size="lg" />
-        <Text>{item.name}</Text>
-        <Text>{item.price}</Text>
-      </Box>
+    <TouchableOpacity>
+      <Text>{item.name}</Text>
     </TouchableOpacity>
   );
 
   return (
-    <ScrollView backgroundColor="#fff">
+    <ScrollView style={styles.container}>
       <VStack space={4} padding={4}>
         <HStack justifyContent="space-between" alignItems="center">
           <Text fontSize="2xl" bold>Grabatoz</Text>
-          <Input
-            placeholder="Search Products..."
-            width="70%"
-            borderRadius="4"
-            py="1"
-            px="2"
-            fontSize="14"
-            InputLeftElement={<Icon as={<MaterialIcons name="search" />} size="sm" m={2} />}
-          />
+          {/* SearchBar} */
+          /*
           <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
             <Icon as={<MaterialIcons name="shopping-cart" />} size="lg" />
-            <Badge // Badge to show cart item count
+            <Badge
               colorScheme="danger"
               rounded="full"
               mb={-3}
@@ -64,24 +64,13 @@ const HomeScreen = () => {
               zIndex={1}
               variant="solid"
               alignSelf="flex-end"
-              _text={{
-                fontSize: 12,
-              }}
+              _text={{ fontSize: 12 }}
+              style={styles.badgeShadow}
             >
               3
             </Badge>
           </TouchableOpacity>
         </HStack>
-
-        <Carousel
-          data={featuredProducts}
-          renderItem={renderProduct}
-          sliderWidth={300}
-          itemWidth={300}
-          loop={true}
-          autoplay={true}
-          containerCustomStyle={{ marginVertical: 20 }}
-        />
 
         <Text fontSize="xl" bold>Categories</Text>
         <FlatList
@@ -105,4 +94,15 @@ const HomeScreen = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+  },
+  badgeShadow: {
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.25)', // Update shadow properties to boxShadow
+  },
+});
+
 export default HomeScreen;
+*/
+
