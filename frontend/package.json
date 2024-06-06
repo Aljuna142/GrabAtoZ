@@ -1,5 +1,9 @@
 {
   "name": "frontend",
+<<<<<<< HEAD
+=======
+  "main": "./src/index.js",
+>>>>>>> d30ef96f9fd07376b86361d0a33563acfd0f53ce
   "version": "1.0.0",
   "description": "",
   "main": "./src/App.js",
