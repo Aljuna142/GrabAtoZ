@@ -24,16 +24,3 @@ export default BuyNowIcon;
 
 
 
-/*import React from 'react';
-import { TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
-const BuyNowIcon = ({ isPressed, onPress }) => {
-  return (
-    <TouchableOpacity onPress={onPress} activeOpacity={1}>
-      <Ionicons name="basket" size={24} color={isPressed ? '#2FAC44' : 'grey'} />
-    </TouchableOpacity>
-  );
-};
-
-export default BuyNowIcon;*/
