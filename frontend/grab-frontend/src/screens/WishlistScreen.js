@@ -1,7 +1,17 @@
+// WishlistScreen.js
+
+
+
+
+
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { useSelector } from 'react-redux';
 
-const WishlistScreen = ({ wishlistItems }) => {
+const WishlistScreen = () => {
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+  console.log('Wishlist items:', wishlistItems);
+
   // Render item function for the FlatList
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
@@ -17,7 +27,7 @@ const WishlistScreen = ({ wishlistItems }) => {
       <FlatList
         data={wishlistItems}
         renderItem={renderItem}
-        keyExtractor={(item) => item.title}
+        keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.listContainer}
       />
     </View>
@@ -58,3 +68,5 @@ const styles = StyleSheet.create({
 });
 
 export default WishlistScreen;
+
+

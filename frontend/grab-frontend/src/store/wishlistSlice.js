@@ -1,7 +1,11 @@
+
+
+
+// wishlistSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  items: [],
+  items: {}, // Object with item IDs as keys and item details as values
 };
 
 const wishlistSlice = createSlice({
@@ -9,15 +13,23 @@ const wishlistSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      const { id, ...itemDetails } = action.payload;
+      state.items[id] = itemDetails;
     },
     removeItem: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload.id);
+      const itemId = action.payload;
+      delete state.items[itemId];
     },
-    // Add other actions as needed
   },
 });
 
 export const { addItem, removeItem } = wishlistSlice.actions;
 
 export default wishlistSlice.reducer;
+
+
+
+
+
+
+
