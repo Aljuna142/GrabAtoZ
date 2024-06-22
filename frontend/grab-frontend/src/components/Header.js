@@ -106,9 +106,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
     marginRight: 5,
+    
     maxWidth: screenWidth * 0.6,
   },
   searchInput: {
+    
     flex: 1,
     height: 40,
   },
@@ -116,6 +118,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderRadius: 20,
     padding: 8,
+    //Adjust margin
+    //marginLeft: 5,
+
   },
   searchIcon: {
     color: '#888',
@@ -127,6 +132,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderRadius: 20,
     padding: 8,
+    //Adjust Margin
+   // marginRight: 5,
   },
   cameraIcon: {
     color: '#888',

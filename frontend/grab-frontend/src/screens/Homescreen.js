@@ -4,18 +4,22 @@
 
 
 
-import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, Platform, FlatList, Dimensions } from 'react-native';
+
+
+ import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, Platform, Dimensions, FlatList } from 'react-native'; // Added FlatList
 import { Container, Content } from 'native-base';
 import Header from '../components/Header';
 import CategoryItem from '../components/CategoryItem';
 import CardComponent from '../components/CardComponent';
 import Banner from '../components/Banner';
 import ResponsiveGrid from '../components/ResponsiveGrid';
+import RecentlyViewedItems from '../components/RecentlyViewedItems'; // Import RecentlyViewedItems component
 import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [recentlyViewedItems, setRecentlyViewedItems] = useState([]);
   const navigation = useNavigation();
 
   const categories = [
@@ -48,18 +52,28 @@ const HomeScreen = () => {
   const renderProductItem = ({ item }) => (
     <CardComponent
       key={item.id}
+      id={item.id}
       title={item.name}
+      description={item.description}
       price={item.price}
       image={item.image}
       rating={item.rating}
       reviews={item.reviews}
+      onAddToCart={() => console.log('Add to Cart pressed for', item.name)}
       onBuyNow={() => console.log('Buy Now pressed for', item.name)}
+     // onPress={() => navigation.navigate('ProductDetails', { product: item })} // Navigate to ProductDetailsScreen
       style={styles.card}
     />
   );
 
   const { width } = Dimensions.get('window');
   const numColumns = width < 600 ? 2 : 4;
+
+  // Function to handle press on RecentlyViewedItems
+  const handlePressItem = (itemId) => {
+    // Add logic to handle press on recently viewed item
+    console.log('Recently Viewed Item Pressed:', itemId);
+  };
 
   // Function to navigate to the Wishlist screen
   const goToWishlist = () => {
@@ -75,6 +89,8 @@ const HomeScreen = () => {
           style={Platform.OS === 'web' ? styles.webScrollView : { flex: 1 }}
           showsVerticalScrollIndicator={true}>
           <Banner />
+          
+          <RecentlyViewedItems items={recentlyViewedItems} onPressItem={handlePressItem} />
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Categories</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.horizontalScrollView}>
@@ -133,7 +149,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginHorizontal: 2,
   },
-  flatListContent: { 
+  flatListContent: {
     paddingHorizontal: 10,
   },
   card: {
@@ -145,8 +161,5 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
-
-
 
 
