@@ -1,13 +1,6 @@
 
-
-
-
-
-
-
-
- import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, Platform, Dimensions, FlatList } from 'react-native'; // Added FlatList
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, View, Platform, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import { Container, Content } from 'native-base';
 import Header from '../components/Header';
 import CategoryItem from '../components/CategoryItem';
@@ -50,20 +43,25 @@ const HomeScreen = () => {
   );
 
   const renderProductItem = ({ item }) => (
-    <CardComponent
-      key={item.id}
-      id={item.id}
-      title={item.name}
-      description={item.description}
-      price={item.price}
-      image={item.image}
-      rating={item.rating}
-      reviews={item.reviews}
-      onAddToCart={() => console.log('Add to Cart pressed for', item.name)}
-      onBuyNow={() => console.log('Buy Now pressed for', item.name)}
-     // onPress={() => navigation.navigate('ProductDetails', { product: item })} // Navigate to ProductDetailsScreen
-      style={styles.card}
-    />
+    <TouchableOpacity
+      onPress={() => {
+        console.log('Navigating to ProductDetails with product:', item);
+        navigation.navigate('ProductDetails', { product: item });
+      }}>
+      <CardComponent
+        key={item.id}
+        id={item.id}
+        title={item.name}
+        description={item.description}
+        price={item.price}
+        image={item.image}
+        rating={item.rating}
+        reviews={item.reviews}
+        onAddToCart={() => console.log('Add to Cart pressed for', item.name)}
+        onBuyNow={() => console.log('Buy Now pressed for', item.name)}
+        style={styles.card}
+      />
+    </TouchableOpacity>
   );
 
   const { width } = Dimensions.get('window');
@@ -89,7 +87,6 @@ const HomeScreen = () => {
           style={Platform.OS === 'web' ? styles.webScrollView : { flex: 1 }}
           showsVerticalScrollIndicator={true}>
           <Banner />
-          
           <RecentlyViewedItems items={recentlyViewedItems} onPressItem={handlePressItem} />
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Categories</Text>
@@ -161,5 +158,8 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+
+
 
 
