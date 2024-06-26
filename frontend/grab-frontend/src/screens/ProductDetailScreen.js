@@ -1,7 +1,7 @@
 
 
 
-import React from 'react';
+/*import React from 'react';
 import { View, Text, StyleSheet, Button, ScrollView } from 'react-native';
 import ImageSectionComponent from '../components/ImageSectionComponent';
 
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductDetailsScreen;
+export default ProductDetailsScreen;*/
 
 
 
