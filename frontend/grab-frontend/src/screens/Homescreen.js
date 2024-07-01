@@ -27,13 +27,13 @@ const HomeScreen = () => {
   ];
 
   const featuredProducts = [
-    { id: '1', name: 'Product 1', image: require('../assets/images/lap-2.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '2', name: 'Product 2', image: require('../assets/images/Asus.png'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '3', name: 'Product 3', image: require('../assets/images/msi.png'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '4', name: 'Product 4', image: require('../assets/images/lap-2.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '5', name: 'Product 5', image: require('../assets/images/lap-1.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '6', name: 'Product 6', image: require('../assets/images/msi.png'), price: '$199.99', rating: 4.0, reviews: 8 },
-    { id: '7', name: 'Product 7', image: require('../assets/images/lap-1.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '1', name: 'Lenovo IdeaCentre AIO 3 24ALC6 (2021) Desktop', image: require('../assets/images/lap-2.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '2', name: 'Acer Aspire 3 Intel Core I5-1135G7 8GB Ram 1TB HDD Nvidia MX350 2GB 15.6″ FHD Win11 ENG-ARB Keyboard Silver Color', image: require('../assets/images/Asus.png'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '3', name: 'MacBook Air MQKP3 15-Inch Display, Apple M2 Chip With 8-Core CPU And 10-Core GPU, 256GB SSD, English Keyboard Space Grey', image: require('../assets/images/msi.png'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '4', name: 'ASUS TUF A15 FA507RE-HN049W Gaming Laptop AMD R7-6800H 16GB Ram 512GB SSD Nvidia RTX 3050TI 4GB 15.6″ FHD 144Hz Win11', image: require('../assets/images/lap-2.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '5', name: 'HP VICTUS 15-Fa1093dx Core™ I5-13420H, 512GB SSD 8GB 15.6″ (1920×1080) 144Hz IPS WIN11 NVIDIA® RTX 3050 6144MB 6GB GRAPHICS Blue Backlit Keyboard', image: require('../assets/images/lap-1.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '6', name: 'Lenovo Thinkpad T14 G2 Intel Core I7-1185G7 VPro 16GB RAM 256GB SSD 14” Touch FHD IPS Win11Pro English Keyboard', image: require('../assets/images/msi.png'), price: '$199.99', rating: 4.0, reviews: 8 },
+    { id: '7', name: 'Acer Aspire 3 Intel Core I5-1235U 8GB Ram 512GB SSD Intel Iris Xe Graphics 15.6″ FHD Win11 ENG Keyboard Silver Color', image: require('../assets/images/lap-1.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
     { id: '8', name: 'Product 8', image: require('../assets/images/lap-2.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
     { id: '9', name: 'Product 9', image: require('../assets/images/lap-1.jpg'), price: '$199.99', rating: 4.0, reviews: 8 },
   ];
