@@ -1,4 +1,77 @@
+
+
+
+
 import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import StarRating from './StarRating';
+
+const CustomerReviewsSection = ({ reviews = [] }) => {
+  const renderReview = ({ item }) => (
+    <View style={styles.reviewContainer}>
+      <Text style={styles.reviewText}>{item.text}</Text>
+      <StarRating rating={item.rating} />
+    </View>
+  );
+
+  // Add logging to debug the issue
+  const keyExtractor = (item, index) => {
+    console.log('Item:', item);
+    console.log('Index:', index);
+    return item && item.id ? item.id.toString() : index.toString();
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Customer Reviews</Text>
+      {reviews.length > 0 ? (
+        <FlatList
+          data={reviews}
+          keyExtractor={keyExtractor}
+          renderItem={renderReview}
+          contentContainerStyle={styles.reviewsList}
+        />
+      ) : (
+        <Text style={styles.noReviewsText}>No reviews available</Text>
+      )}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  reviewsList: {
+    paddingBottom: 16,
+  },
+  reviewContainer: {
+    marginBottom: 16,
+  },
+  reviewText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  noReviewsText: {
+    fontSize: 16,
+    color: 'gray',
+  },
+});
+
+export default CustomerReviewsSection;
+
+
+
+
+
+
+
+/*import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const CustomerReviews = ({ reviews }) => (
@@ -44,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomerReviews;
+export default CustomerReviews;*/

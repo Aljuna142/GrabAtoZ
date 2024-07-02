@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, FlatList, Image, Button, StyleSheet, Dimensions } from 'react-native';
-import SimilarProducts from './SimilarProducts'; // Import SimilarProducts component
+import SimilarProducts from './SimilarProducts';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -16,8 +16,8 @@ const StartProduct = ({ product, similarProducts }) => {
     <View style={styles.horizontalSwiperContainer}>
       <FlatList
         data={productImages}
-        horizontal
-        pagingEnabled
+        horizontal={true}
+        pagingEnabled={true}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.imageContainer}>
@@ -25,6 +25,7 @@ const StartProduct = ({ product, similarProducts }) => {
           </View>
         )}
         showsHorizontalScrollIndicator={false}
+        snapToInterval={screenWidth} // Ensures each slide takes the full width of the screen
       />
       <View style={styles.buttonContainer}>
         <Button title="Add to Cart" onPress={() => console.log('Add to Cart pressed')} />
@@ -36,7 +37,7 @@ const StartProduct = ({ product, similarProducts }) => {
   return (
     <View style={styles.container}>
       {renderHorizontalImageSwiper()}
-      <SimilarProducts data={similarProducts} /> {/* Render SimilarProducts component */}
+      <SimilarProducts data={similarProducts} />
     </View>
   );
 };
@@ -68,4 +69,5 @@ const styles = StyleSheet.create({
 });
 
 export default StartProduct;
+
 
