@@ -6,7 +6,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { View, Text, FlatList, StyleSheet, Dimensions } from 'react-native';
-import { removeItem } from '../store/actions';
+import { removeItem } from '../store/actions/wishlistActions';
 import CardComponent from '../components/CardComponent';
 
 const WishlistScreen = () => {

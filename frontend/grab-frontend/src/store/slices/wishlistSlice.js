@@ -1,5 +1,5 @@
 
-// store/wishlistSlice.js
+// store/slices//wishlistSlice.js
 
 
 import { createSlice } from '@reduxjs/toolkit';

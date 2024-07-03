@@ -4,7 +4,7 @@ import { Card, CardItem, Text, Body, View } from 'native-base';
 import { Image, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { products } from '../data/product';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, removeItem } from '../store/wishlistSlice';
+import { addItem, removeItem } from '../store/slices/wishlistSlice';
 import { useNavigation } from '@react-navigation/native';
 import HeartIcon from './HeartIcon';
 import CartIcon from './CartIcon';

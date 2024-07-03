@@ -1,3 +1,5 @@
+//store/reducers/profileReducer.js
+
 const initialState = {
     username: '',
     email: '',

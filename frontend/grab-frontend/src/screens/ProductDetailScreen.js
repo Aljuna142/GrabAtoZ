@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native'; // Import ScrollView for vertical scrolling
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { products, similarProducts } from '../data/product'; // Ensure the correct path and filename
 import StartProduct from '../components/StartProduct';
 import EndProduct from '../components/EndProduct';
@@ -19,13 +19,15 @@ const ProductDetailsScreen = ({ route }) => {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.contentContainer}>
-      <View style={styles.row}>
-        <View style={styles.column}>
-          <StartProduct product={product} similarProducts={similarProducts} />
-        </View>
-        <View style={styles.column}>
-          <EndProduct product={product} />
+    <ScrollView style={styles.container}>
+      <View style={styles.content}>
+        <View style={styles.row}>
+          <View style={styles.column}>
+            <StartProduct product={product} similarProducts={similarProducts} />
+          </View>
+          <View style={styles.column}>
+            <EndProduct product={product} />
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -35,10 +37,9 @@ const ProductDetailsScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#fff', // Optional: Add background color if needed
   },
-  contentContainer: {
+  content: {
     flexGrow: 1,
     paddingHorizontal: 16,
     paddingTop: 8,
@@ -54,15 +55,6 @@ const styles = StyleSheet.create({
 });
 
 export default ProductDetailsScreen;
-
-
-
-
-
-
-
-
-
 
 
 
