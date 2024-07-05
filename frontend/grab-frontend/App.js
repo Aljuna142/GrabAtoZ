@@ -1,15 +1,39 @@
 
-// App.js
 
-import React from 'react';
+// App.js
+/*import React from 'react';
 import { Provider } from 'react-redux';
-import store from './src/store/store'; // Adjust the path as necessary
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/store/store'; // Adjust the path as necessary
 import AppNavigator from './src/navigation/AppNavigator'; 
+import SplashScreen from './src/screens/SplashScreen'; // Import SplashScreen for loading
 
 const App = () => {
   return (
     <Provider store={store}>
-      <AppNavigator />
+      <PersistGate loading={<SplashScreen />} persistor={persistor}>
+        <AppNavigator />
+      </PersistGate>
+    </Provider>
+  );
+};
+
+export default App;*/
+
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/store/store'; // Adjust the path as necessary
+import AppNavigator from './src/navigation/AppNavigator'; 
+import SplashScreen from './src/screens/SplashScreen'; // Import SplashScreen for loading
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={<SplashScreen />} persistor={persistor}>
+        <AppNavigator />
+      </PersistGate>
     </Provider>
   );
 };
@@ -20,35 +44,6 @@ export default App;
 
 
 
-/*import React from 'react';
-import { Provider } from 'react-redux';
-import store from './src/store'; // Adjust the path as necessary
-import AppNavigator from './src/navigation/AppNavigator'; 
-
-const App = () => {
-  return (
-    <Provider store={store}>
-      <AppNavigator />
-    </Provider>
-  );
-};
-
-export default App;*/
 
 
-
-
-
-
-
-
-/*import React from 'react';
-
-import AppNavigator from './src/navigation/AppNavigator'; 
-
-const App = () => {
-  return <AppNavigator />;
-};
-
-export default App;*/
 

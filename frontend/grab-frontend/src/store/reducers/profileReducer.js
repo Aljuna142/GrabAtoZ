@@ -1,6 +1,6 @@
 //store/reducers/profileReducer.js
 
-const initialState = {
+/*const initialState = {
     username: '',
     email: '',
   };
@@ -24,5 +24,43 @@ const initialState = {
     }
   };
   
-  export default profileReducer;
+  export default profileReducer;*/
+  // store/reducers/productsReducer.js
+
+import { FETCH_PRODUCT_REQUEST, FETCH_PRODUCT_SUCCESS, FETCH_PRODUCT_FAILURE } from '../actions/productActions';
+
+const initialState = {
+  productDetails: null,
+  loading: false,
+  error: null,
+};
+
+const productsReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_PRODUCT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case FETCH_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        productDetails: action.payload,
+        loading: false,
+      };
+    case FETCH_PRODUCT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export default productsReducer;
+
+
   

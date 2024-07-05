@@ -440,13 +440,13 @@ const styles = StyleSheet.create({
 export default StartProduct;vvv*/
 
 
-import React from 'react';
+/*add to cart functionality is missing otherwsie good working import React from 'react';
 import { View, FlatList, Image, TouchableOpacity, StyleSheet, Dimensions, Text } from 'react-native';
 import SimilarProducts from './SimilarProducts';
 
 const { width: screenWidth } = Dimensions.get('window');
 
-const StartProduct = ({ product, similarProducts }) => {
+const StartProduct = ({ product, similarProducts,onPressAddToCart }) => {
   console.log('Rendering StartProduct component');
 
   const productImages = [
@@ -541,7 +541,111 @@ const styles = StyleSheet.create({
   },
 });
 
+export default StartProduct;*/
+
+import React from 'react';
+import { View, FlatList, Image, TouchableOpacity, StyleSheet, Dimensions, Text } from 'react-native';
+import SimilarProducts from './SimilarProducts';
+
+const { width: screenWidth } = Dimensions.get('window');
+
+const StartProduct = ({ product, similarProducts, onPressAddToCart }) => {
+  console.log('Rendering StartProduct component');
+
+  const productImages = [
+    require('../assets/I/img1/11.png'),
+    require('../assets/I/img1/12.png'),
+    require('../assets/I/img1/13.png'),
+  ];
+
+  const handleAddToCart = () => {
+    console.log('Add to Cart pressed');
+    onPressAddToCart(); // Call the onPressAddToCart function passed from props
+  };
+
+  const handleBuyNow = () => {
+    console.log('Buy Now pressed');
+    // Implement your logic for buying now here
+  };
+
+  const renderHorizontalImageSwiper = () => {
+    console.log('Rendering Horizontal Image Swiper');
+    return (
+      <View style={styles.horizontalSwiperContainer}>
+        <FlatList
+          data={productImages}
+          horizontal={true}
+          pagingEnabled={true}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View style={styles.imageContainer}>
+              <Image source={item} style={styles.image} />
+            </View>
+          )}
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={screenWidth} // Ensures each slide takes the full width of the screen
+        />
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
+            <Text style={styles.buttonText}>Add to Cart</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleBuyNow}>
+            <Text style={styles.buttonText}>Buy Now</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      {renderHorizontalImageSwiper()}
+      <SimilarProducts data={similarProducts} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingRight: 8,
+  },
+  horizontalSwiperContainer: {
+    width: '100%',
+    marginBottom: 16,
+  },
+  imageContainer: {
+    width: screenWidth,
+    height: 400,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    paddingHorizontal: 16,
+  },
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    elevation: 3,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
+
 export default StartProduct;
+
 
 
 
