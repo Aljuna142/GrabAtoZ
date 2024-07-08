@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, Pressable, Alert } from 'react-native';
 import PaymentMethod from '../components/PaymentMethod Component';
+import { Right } from 'native-base';
 
 const OrderSummaryScreen = ({ route, navigation }) => {
   const { cartItems = [], totalPrice = 0 } = route.params || {};
@@ -139,3 +140,19 @@ const styles = StyleSheet.create({
 });
 
 export default OrderSummaryScreen;
+
+//no body will not care about making charge they are taking only GR 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

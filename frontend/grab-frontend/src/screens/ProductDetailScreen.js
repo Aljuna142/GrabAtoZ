@@ -1,7 +1,8 @@
 
 
 
-import React from 'react';
+
+/*perfect llayout without scrolling import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Button } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { products, similarProducts } from '../data/product';
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProductDetailsScreen;
+export default ProductDetailsScreen;*/
 
 
 
