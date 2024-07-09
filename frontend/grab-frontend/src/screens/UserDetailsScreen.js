@@ -1,9 +1,15 @@
 
 
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Picker } from 'react-native';
+/*import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+
 
 const UserDetailsScreen = ({ navigation }) => {
+
+
+
+
   const [name, setName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [houseNumber, setHouseNumber] = useState('');
@@ -94,7 +100,7 @@ const UserDetailsScreen = ({ navigation }) => {
         <Picker.Item label="Select Country" value="" />
         <Picker.Item label="UAE" value="UAE" />
         <Picker.Item label="Iran" value="Iran" />
-        {/* Add more countries as needed*/ }
+        {/* Add more countries as needed}
       </Picker>
       <Button
         title="Continue"
@@ -124,4 +130,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserDetailsScreen;
+export default UserDetailsScreen; without return to checkout screen*/
+
+
+
+
+

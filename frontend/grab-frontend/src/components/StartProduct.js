@@ -648,7 +648,7 @@ export default StartProduct;withou scrooling*/
 
 
 import React from 'react';
-import { View, ScrollView, Image, TouchableOpacity, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, ScrollView, Image, Pressable, StyleSheet, Dimensions, Text } from 'react-native';
 import SimilarProducts from './SimilarProducts';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -684,17 +684,17 @@ const StartProduct = ({ product, similarProducts, onPressAddToCart }) => {
         >
           {productImages.map((item, index) => (
             <View key={index} style={styles.imageContainer}>
-              <Image source={item} style={styles.image} />
+              <Image source={item} style={styles.image} resizeMode="contain"/>
             </View>
           ))}
         </ScrollView>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={handleAddToCart}>
+          <Pressable style={styles.button} onPress={handleAddToCart}>
             <Text style={styles.buttonText}>Add to Cart</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleBuyNow}>
+          </Pressable>
+          <Pressable style={styles.button} onPress={handleBuyNow}>
             <Text style={styles.buttonText}>Buy Now</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     );
@@ -748,10 +748,3 @@ const styles = StyleSheet.create({
 });
 
 export default StartProduct;
-
-
-
-
-
-
-
