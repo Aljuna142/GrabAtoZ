@@ -1788,7 +1788,7 @@ const ProductDetailsScreen = ({ route }) => {
         )}
         <View style={styles.reviewsSection}>
           <Text style={styles.reviewsHeader}>Customer Reviews</Text>
-          {/* Add your customer reviews component here */}
+          {/* Add your customer reviews component here*/}
         </View>
       </View>
     </ScrollView>
@@ -1865,6 +1865,9 @@ const styles = StyleSheet.create({
 });
 
 export default ProductDetailsScreen;
+
+
+
 
 
 
