@@ -34,3 +34,26 @@ export default CartIcon;
 
 
 
+
+/*import React from 'react';
+import { Pressable, StyleSheet } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+
+const CartIcon = ({ onPress, isInCart }) => {
+  return (
+    <Pressable onPress={onPress} style={styles.icon}>
+      <MaterialIcons name="shopping-cart" size={24} color={isInCart ? 'yellow' : 'gray'} />
+    </Pressable>
+  );
+};
+
+const styles = StyleSheet.create({
+  icon: {
+    padding: 10,
+  },
+});
+
+export default CartIcon;*/
+
+
+

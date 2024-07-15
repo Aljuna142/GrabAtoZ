@@ -10,9 +10,9 @@ const Banner = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const images = [
-    require('../assets/images/banner-1.jpg'),
-    require('../assets/images/banner-2.jpg'),
-    require('../assets/images/banner-3.jpg'),
+    require('../assets/Banners/banner led 2.png'),
+    require('../assets/Banners/banner laptop.png'),
+    require('../assets/Banners/banner microsoft surface.png'),
   ];
 
   return (

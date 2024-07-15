@@ -30,7 +30,7 @@ const themeReducer = (state = initialState, action) => {
 export default themeReducer;*/
 
 
-import { SET_THEME, SET_THEME_COLOR } from '../actions/themeActions';
+/*import { SET_THEME, SET_THEME_COLOR } from '../actions/themeActions';
 
 const initialState = {
   theme: 'light',
@@ -61,6 +61,48 @@ const themeReducer = (state = initialState, action) => {
   }
 };
 
+export default themeReducer;*/
+
+/*// themeReducer.js
+import { SET_THEME, SET_THEME_COLOR } from '../actions/themeActions';
+
+const initialState = {
+  theme: 'light',
+  themeColor: '#0B086B', // Default theme color
+};
+
+const themeReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_THEME:
+      return { ...state, theme: action.payload };
+    case SET_THEME_COLOR:
+      return { ...state, themeColor: action.payload };
+    default:
+      return state;
+  }
+};
+
+export default themeReducer;*/
+
+
+
+// themeReducer.js
+import { SET_THEME, SET_THEME_COLOR } from '../actions/themeActions';
+
+const initialState = {
+  theme: 'light',
+  themeColor: '#0B086B', // Default theme color
+};
+
+const themeReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_THEME:
+      return { ...state, theme: action.payload };
+    case SET_THEME_COLOR:
+      return { ...state, themeColor: action.payload };
+    default:
+      return state;
+  }
+};
+
 export default themeReducer;
-
-
