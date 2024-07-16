@@ -654,7 +654,7 @@ export default CartScreen;*/
 
 
 
-import React from 'react';
+/*pakka import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../store/actions/cartActions';
@@ -743,7 +743,116 @@ const styles = StyleSheet.create({
   },
 });
 
+export default CartScreen;*/
+
+
+import React from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView, Platform } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from '../store/actions/cartActions';
+import CartItem from '../components/CartItem';
+import { useNavigation } from '@react-navigation/native';
+
+const CartScreen = () => {
+  const cartItems = useSelector(state => state.cart.items);
+  const dispatch = useDispatch();
+  const navigation = useNavigation(); // Initialize navigation here
+
+  // Calculate total price
+  const totalPrice = cartItems.reduce((acc, item) => acc + parseFloat(item.price * item.quantity), 0);
+
+  // Function to handle checkout button press
+  const handleCheckout = () => {
+    navigation.navigate('Checkout', { cartItems, totalPrice }); 
+  };
+
+  // Render item in cart
+  const renderItem = ({ item }) => <CartItem item={item} />;
+
+  return (
+    <View style={styles.container}>
+      {/* Use conditional rendering for web platform */}
+      {Platform.OS === 'web' ? (
+        <ScrollView style={styles.webScrollView}>
+          <FlatList
+            data={cartItems}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id.toString()}
+            contentContainerStyle={styles.listContainer}
+          />
+        </ScrollView>
+      ) : (
+        <FlatList
+          data={cartItems}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.listContainer}
+        />
+      )}
+      <View style={styles.footer}>
+        <Text style={styles.total}>Total: ${totalPrice.toFixed(2)}</Text>
+        <TouchableOpacity style={styles.checkoutButton} onPress={handleCheckout}>
+          <Text style={styles.checkoutText}>Checkout</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.clearButton} onPress={() => dispatch(clearCart())}>
+          <Text style={styles.clearText}>Clear Cart</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 8,
+  },
+  webScrollView: {
+    maxHeight: '70vh', // Limit height for web scrolling
+  },
+  listContainer: {
+    paddingTop: 16,
+    paddingBottom: 16, // Add padding to ensure content is scrollable
+  },
+  footer: {
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+    paddingVertical: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  total: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  checkoutButton: {
+    backgroundColor: 'green',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  checkoutText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  clearButton: {
+    backgroundColor: 'gray',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  clearText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+
 export default CartScreen;
+
 
 
 

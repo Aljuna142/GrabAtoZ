@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    backgroundColor: 'green',
+    backgroundColor: '#596F8B',
     borderRadius: 8,
     padding: 10,
     alignItems: 'center',
-    width: '48%', // Adjust width as needed
+    width: '35%', // Adjust width as needed
   },
   buttonText: {
     color: 'white',
